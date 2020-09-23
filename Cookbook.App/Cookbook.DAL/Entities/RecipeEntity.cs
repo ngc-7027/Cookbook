@@ -14,14 +14,19 @@ namespace Cookbook.DAL.Entities
         public TimeSpan PrepTime { get; set; }
         public TimeSpan CookTime { get; set; }
         public TimeSpan AdditionalTime { get; set; }
+        public TimeSpan TotalTime
+        {
+            get
+            {
+                return PrepTime + CookTime + AdditionalTime;
+            }
+        }
         public FoodCategory FoodCategory { get; set; }
         public FoodSpecialDiet FoodSpecialDiet { get; set; }
         public DegreeOfDifficulty DegreeOfDifficulty { get; set; }
-        public Guid AuthorId { get; set; }
         public AuthorEntity Author { get; set; }
-        public Guid NutritionInfoId { get; set; }
         public NutritionInfoEntity NutritionInfo { get; set; }
-        public ICollection<IngredientAmountEntity> IngredientAmounts { get; set; }
+        public ICollection<RecipeIngredientEntity> RecipeIngredients { get; set; }
         public ICollection<ReviewEntity> Reviews { get; set; }
     }
 }
